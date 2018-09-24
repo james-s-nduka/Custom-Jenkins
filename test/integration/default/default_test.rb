@@ -1,5 +1,3 @@
-# # encoding: utf-8
-
 # Inspec test for recipe custom-jenkins::default
 
 # The Inspec reference, with examples and extensive documentation, can be
@@ -12,7 +10,28 @@ unless os.windows?
   end
 end
 
-# This is an example test, replace it with your own test.
+describe user('jenkins') do
+  it { should exist }
+end
+
 describe port(80), :skip do
   it { should_not be_listening }
+end
+
+describe port(8080) do
+  it { should be_listening }
+end
+
+describe package('jdk-8u151-linux-x64') do
+  it { should be_installed }
+end
+
+describe package('jenkins.noarch') do
+  it { should be_installed }
+  its('version') { should cmp >= '2.138.1-1.1' }
+end
+
+describe service 'jenkins' do
+  it { should be_running }
+  it { should be_enabled }
 end
