@@ -29,4 +29,5 @@ suites:
       java:
         jdk_version: '8'
         install_flavour: 'oracle'
-        accept_oracle_download_terms: true
+        oracle:
+          accept_oracle_download_terms: true
