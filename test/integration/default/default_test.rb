@@ -22,7 +22,7 @@ describe port(8080) do
   it { should be_listening }
 end
 
-describe package('jdk-8u151-linux-x64') do
+describe package('jdk1.8.x86_64') do
   it { should be_installed }
 end
 

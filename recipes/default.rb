@@ -6,7 +6,7 @@
 
 include_recipe 'jenkins::master'
 
-# Install java which is required for jenkins if the machine doesn't already have it available
+# Install java which is required for jenkins if not available
 include_recipe 'java' unless system('java -version')
 
 # Install the latest version of the greenballs plugin
